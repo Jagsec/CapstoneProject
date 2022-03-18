@@ -1,0 +1,16 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    RIP Config
+{% endblock %}
+
+{% block configTitle %}
+    RIP Config
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_ip.label() }}</span>
+    {{ form.network_ip(class="form-control", placeholder="Example: 192.168.10.0") }}
+</div>
+{% endblock %}

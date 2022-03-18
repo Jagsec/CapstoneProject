@@ -1,0 +1,91 @@
+<!--Esta es una segunda plantilla para las pantallas de configuración de la aplicación-->
+<!--Mediante el extend se hereda la plantilla base-->
+{% extends 'base.html' %}
+<!--Cambio del título de la página-->
+{% block title %}
+    Show Config
+{% endblock %}
+
+{% block content %}
+<p class="px-2">Choose a configuration and enter the necessary data</p>
+    <!--Creación de la barra izquierda con las configuraciones-->
+    <div class="row">
+        <div class="col-1">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('showRunPage') }}">Show Config</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('vlanPage') }}">VLAN</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('ipAddressPage') }}">IP Address</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('portSecurityPage') }}">Port Security</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('createUserPage') }}">Create User</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('dhcpConfigPage') }}">DHCP Config</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('staticRouteConfigPage') }}">Static Route Config</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('RIPConfigPage') }}">RIP Config</a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-outline-dark">
+                    <a class="text-white" href="{{ url_for('ospfConfigPage') }}">OSPF Config</a>
+                </button>
+              </div> 
+        </div>
+        <div class="col-4 ">           
+            <div class="text-center bg-secondary rounded">
+                <h4>
+                    {% block configTitle %}
+                    Show Configuration
+                    {% endblock %}
+                </h4>
+            </div>
+            <!--Creación del form para ingresar los datos-->
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="input-group mb-2">
+                    <span class="input-group-text">{{ form.ip_address.label() }}</span>
+                    {{ form.ip_address(class="form-control", placeholder="Example: 192.168.1.2") }}
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text">{{ form.username.label() }}</span>
+                    {{ form.username(class="form-control", placeholder="Example: user1")}}
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text">{{ form.password.label() }}</span>
+                    {{ form.password(class="form-control", placeholder="Example: P455W0RD") }}
+                </div>
+                <!--En este bloque se cambian los datos que se ingresa en cada configuración-->
+                {% block inputs %}
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">{{ form.configuration.label() }}</label>
+                    </div>
+                    {{ form.configuration(class="form-control") }}
+                </div>
+                {% endblock %}
+                <div class="pt-2">
+                    {{form.submit(class="btn btn-primary")}}
+                </div> 
+            </form>       
+        </div>
+        <!--Creación de la caja de salida-->
+        <div class="col-6">
+            <div class="card text-dark">
+                <div class="card-header">Configuration output</div>
+                <div class="card-body">
+                    <pre>{{ config_output }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

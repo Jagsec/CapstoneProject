@@ -1,0 +1,36 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    DHCP Config
+{% endblock %}
+
+{% block configTitle %}
+    DHCP Config
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.dhcp_pool.label() }}</span>
+    {{ form.dhcp_pool(class="form-control", placeholder="Example: Marketing") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_ip.label() }}</span>
+    {{ form.network_ip(class="form-control", placeholder="Example: 192.168.50.0") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_mask.label() }}</span>
+    {{ form.network_mask(class="form-control", placeholder="Example: 255.255.255.0") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.default_router.label() }}</span>
+    {{ form.default_router(class="form-control", placeholder="Example: 192.168.50.1") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.domain_name.label() }}</span>
+    {{ form.domain_name(class="form-control", placeholder="Example: udla.edu.ec") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.dns_server.label() }}</span>
+    {{ form.dns_server(class="form-control", placeholder="Example: 8.8.8.8") }}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    OSPF Config
+{% endblock %}
+
+{% block configTitle %}
+    OSPF Config
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.process_id.label() }}</span>
+    {{ form.process_id(class="form-control", placeholder="Example: 109") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_ip.label() }}</span>
+    {{ form.network_ip(class="form-control", placeholder="Example: 192.168.50.0") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.wildcard_mask.label() }}</span>
+    {{ form.wildcard_mask(class="form-control", placeholder="Example: 0.0.0.255") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.area_id.label() }}</span>
+    {{ form.area_id(class="form-control", placeholder="Example: 10") }}
+</div>
+{% endblock %}

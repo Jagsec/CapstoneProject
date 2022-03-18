@@ -1,0 +1,28 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    IP Addressing
+{% endblock %}
+
+{% block configTitle %}
+    IP Addressing
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.interface.label() }}</span>
+    {{ form.interface(class="form-control", placeholder="Example: g0/0, vlan 10") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.config_ip_address.label() }}</span>
+    {{ form.config_ip_address(class="form-control", placeholder="Example: 192.168.10.10") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_mask.label() }}</span>
+    {{ form.network_mask(class="form-control", placeholder="Example: 255.255.255.0") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.description.label() }}</span>
+    {{ form.description(class="form-control", placeholder="Example: red soporte") }}
+</div>
+{% endblock %}

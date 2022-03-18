@@ -1,0 +1,36 @@
+<!--Página de login, hereda de la plantilla base-->
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-4 text-center">
+         <h3 class="pt-2">
+            {% block header %} 
+            Login
+            {% endblock %}
+        </h3>
+        <!--Creación del form para ingresar los datos de login-->
+        <form method="POST" class="form-{% block class %}signin{% endblock %}">
+            {{ form.hidden_tag() }}
+            <div class="input-group pt-2">
+                <span class="input-group-text">{{ form.username.label() }}</span>
+                {{form.username(class="form-control", placeholder="Example: User1")}}
+            </div>
+            <div class="input-group pt-2">
+                <span class="input-group-text">{{ form.password1.label()}}</span>
+                {{form.password1(class="form-control", placeholder="Example: P4ssw0rd")}}
+            </div>
+            {% block inputs %}
+            
+            {% endblock %}
+            <div class="pt-2">
+                {{form.submit(class="btn btn-primary")}}
+            </div>  
+        </form>
+    </div>
+</div>
+{% endblock %}

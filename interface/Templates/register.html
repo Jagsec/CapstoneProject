@@ -1,0 +1,20 @@
+{% extends 'login.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block header %} 
+    Registration
+{% endblock %}
+
+{% block class %}
+register
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group pt-2">
+    <span class="input-group-text" id="password2">{{form.password2.label()}}</span>
+    {{form.password2(class="form-control", placeholder="Example: P4ssw0rd")}}
+</div> 
+{% endblock %}

@@ -1,0 +1,24 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    Static Route
+{% endblock %}
+
+{% block configTitle %}
+    Static Route
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_ip.label() }}</span>
+    {{ form.network_ip(class="form-control", placeholder="Example: 192.168.10.0") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.network_mask.label() }}</span>
+    {{ form.network_mask(class="form-control", placeholder="Example: 255.255.255.0") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.next_hop_ip.label() }}</span>
+    {{ form.next_hop_ip(class="form-control", placeholder="Example: 192.168.15.10") }}
+</div>
+{% endblock %}

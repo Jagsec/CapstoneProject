@@ -1,0 +1,24 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    Create User
+{% endblock %}
+
+{% block configTitle %}
+    Create User
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.new_user.label() }}</span>
+    {{ form.new_user(class="form-control", placeholder="Example: user1") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.new_password.label() }}</span>
+    {{ form.new_password(class="form-control", placeholder="Example: P4ssw0rd") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.privilege_level.label() }}</span>
+    {{ form.privilege_level(class="form-control", placeholder="0 - 15") }}
+</div>
+{% endblock %}

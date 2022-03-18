@@ -1,0 +1,20 @@
+<!--Hereda de showRun.html-->
+{% extends 'showRun.html' %}
+{% block title %}
+    VLAN Config
+{% endblock %}
+
+{% block configTitle %}
+    VLAN Configuration
+{% endblock %}
+
+{% block inputs %}
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.vlan_numbers.label() }}</span>
+    {{ form.vlan_numbers(class="form-control", placeholder="Example: 1") }}
+</div>
+<div class="input-group mb-2">
+    <span class="input-group-text">{{ form.vlan_names.label() }}</span>
+    {{ form.vlan_names(class="form-control", placeholder="Example: Vlan 1") }}
+</div>
+{% endblock %}
